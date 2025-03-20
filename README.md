@@ -28,20 +28,35 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Step 3
 - Step 4
 
-<h2>Deployment and Configuration Steps</h2>
-<h1>Installing Active Directory Domain Services</h1>
-        <p>Follow these steps to install Active Directory on DC-1:</p>
-        <ol>
-            <li>Log in to <strong>DC-1</strong>.</li>
-            <li>Open the <strong>Start</strong> menu and launch <strong>Server Manager</strong>.</li>
-            <li>Click <strong>Add Roles and Features</strong>.</li>
-            <li>In the <strong>Server Roles</strong> section, check the box for <strong>Active Directory Domain Services</strong>.</li>
-            <li>Click <strong>Next</strong> until you reach the confirmation page.</li>
-            <li>Check the option to allow the server to <strong>restart</strong> automatically after installation.</li>
-            <li>Click <strong>Install</strong> and wait for the process to complete.</li>
-            <li>Once installed, click <strong>Close</strong>.</li>
-        </ol>
-        <p>Next, we will promote DC-1 to a Domain Controller and configure Active Directory.</p>
+<h2>Installing Active Directory Domain Services</h2>
+
+<p>
+In this step, we will install Active Directory Domain Services (AD DS) on DC-1. This is essential for setting up a domain controller and managing network resources efficiently.
+</p>
+
+<h3>Step-by-Step Installation</h3>
+
+<p>
+Follow these steps to install AD DS:
+</p>
+
+<ul>
+  <li>Log in to <strong>DC-1</strong> and open the <strong>Server Manager</strong>.</li>
+  <li>Click <strong>Add Roles and Features</strong> to begin the installation process.</li>
+  <li>In the <strong>Server Roles</strong> section, check the box for <strong>Active Directory Domain Services</strong> and click <strong>Next</strong>.</li>
+  <li>Proceed through the installation wizard until you reach the confirmation page.</li>
+  <li>Enable the option to <strong>Restart the server if required</strong> and click <strong>Install</strong>.</li>
+  <li>Wait for the installation to complete and then click <strong>Close</strong>.</li>
+</ul>
+
+<h3>Next Steps: Promoting DC-1 as a Domain Controller</h3>
+
+<p>
+Now that AD DS is installed, the next step is to promote <strong>DC-1</strong> as a domain controller. We will configure Active Directory to manage authentication and domain resources.
+</p>
+
+<p><strong>Continue to the next step to complete this process.</strong></p>
+
 
 
 

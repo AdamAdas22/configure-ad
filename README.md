@@ -49,6 +49,9 @@ Follow these steps to install AD DS:
   <li>Wait for the installation to complete and then click <strong>Close</strong>.</li>
 </ul>
 
+![image](https://github.com/user-attachments/assets/47eadb60-25f9-4222-b26e-3d26580acc13)
+
+
 <h3>Next Steps: Promoting DC-1 as a Domain Controller</h3>
 
 <p>
@@ -75,6 +78,9 @@ Now that Active Directory Domain Services is installed, we need to promote <stro
 <ul>
   <li>Click the <strong>flag icon</strong> at the top-right corner of the screen.</li>
   <li>Select <strong>Promote this server to a domain controller</strong>.</li>
+
+  ![image](https://github.com/user-attachments/assets/18343a11-8aac-4a82-8c70-aecaae9f56bb)
+
   <li>Choose <strong>Add a new forest</strong> and set the root domain name as <strong>mydomain.com</strong>, then click <strong>Next</strong>.</li>
   <li>For the Directory Services Restore Mode (DSRM) password, enter <strong>password1</strong> and confirm it.</li>
   <li>Leave the <strong>Create DNS delegation</strong> box <strong>unchecked</strong> and click <strong>Next</strong>.</li>
@@ -93,6 +99,8 @@ Now that DC-1 has been promoted, you must specify the domain when logging back i
   <li>Because this is now a domain controller, you must log in using the domain.</li>
   <li>For this lab, enter the username as <strong>mydomain.com\labuser</strong> and proceed with login.</li>
 </ul>
+
+![image](https://github.com/user-attachments/assets/54b0b69a-29c8-4a7f-8048-4343673de6ec)
 
 <p><strong>Congratulations! DC-1 is now a domain controller.</strong> Continue to the next step to configure additional settings.</p>
 
@@ -118,11 +126,19 @@ Having a <strong>Domain Administrator</strong> role is a big responsibility, as 
 
 <ul>
   <li>Click the <strong>Windows Start Bar</strong> and open <strong>Active Directory Users and Computers (ADUC)</strong>.</li>
+
+  ![image](https://github.com/user-attachments/assets/61b19a3c-c5e1-45c2-bfdf-331a11059fd1)
+
   <li>In the left-hand panel, find and expand your domain (e.g., <strong>mydomain.com</strong>).</li>
   <li>Right-click the domain name and select <strong>New → Organizational Unit</strong>.</li>
+
+  ![image](https://github.com/user-attachments/assets/4d57d430-302d-4144-8a14-cc7291291c1a)
+
   <li>Enter the name as <strong>_EMPLOYEES</strong> and check the box that says <strong>Protect container from accidental deletion</strong>.</li>
   <li>Click <strong>OK</strong> to create the Organizational Unit.</li>
 </ul>
+
+![image](https://github.com/user-attachments/assets/d7213451-ba84-41fc-8a02-5b029219c08a)
 
 <p><strong>Great job!</strong> You now have an <em>Organizational Unit</em> to store employee accounts. In the next step, we will add users to this OU.</p>
 
@@ -157,11 +173,16 @@ Now that we have set up the <strong>_EMPLOYEES</strong> OU, we will create anoth
 <ul>
   <li>In ADUC, navigate to the newly created <strong>_ADMINS</strong> OU.</li>
   <li>Right-click on <strong>_ADMINS</strong> and select <strong>New → User</strong>.</li>
+
+  ![image](https://github.com/user-attachments/assets/e6df9df0-73c4-49c0-942e-04487df6c60d)
+
   <li>In the <strong>First Name</strong> field, enter: <strong>Jane</strong></li>
   <li>In the <strong>Last Name</strong> field, enter: <strong>Doe</strong></li>
   <li>In the <strong>User logon name</strong> field, enter: <strong>jane_admin</strong></li>
   <li>Click <strong>Next</strong> to proceed.</li>
 </ul>
+
+![image](https://github.com/user-attachments/assets/045760c3-e8db-4494-be96-c385cd28ac5d)
 
 <h3>Step 3: Set a Password for Jane Doe</h3>
 
@@ -190,7 +211,7 @@ Now that we have set up the <strong>_EMPLOYEES</strong> OU, we will create anoth
 Now that we have created the administrative user <strong>jane_admin</strong>, we need to grant her domain administrator privileges. This will allow her to manage Active Directory settings across the domain.
 </p>
 
-<h3>Step 1: Add Jane Doe to the "Domain Admins" Group</h3>
+<h3>Add Jane Doe to the "Domain Admins" Group</h3>
 
 <ul>
   <li>Open <strong>Active Directory Users and Computers (ADUC)</strong>.</li>
@@ -202,7 +223,7 @@ Now that we have created the administrative user <strong>jane_admin</strong>, we
   <li>Click <strong>OK</strong>, then <strong>Apply</strong>, and finally <strong>OK</strong> again.</li>
 </ul>
 
-<h3>Step 2: Log Out and Reconnect as jane_admin</h3>
+<h3>Log Out and Reconnect as jane_admin</h3>
 
 <ul>
   <li>Close the Remote Desktop Connection to <strong>DC-1</strong>.</li>
@@ -214,7 +235,7 @@ Now that we have created the administrative user <strong>jane_admin</strong>, we
   <li>Once logged in, verify that you have administrative privileges by opening <strong>Server Manager</strong> or <strong>Active Directory Users and Computers (ADUC)</strong>.</li>
 </ul>
 
-<h3>Step 3: Use jane_admin as Your Admin Account</h3>
+<h3>Use jane_admin as Your Admin Account</h3>
 
 <p>
 From this point forward, <strong>jane_admin</strong> will be used as the primary administrative account for managing the domain. 
@@ -242,25 +263,28 @@ This ensures that all administrative actions are logged under a dedicated admin 
 Now that we have our domain controller (DC-1) set up, we need to join Client-1 to the domain. This will allow Client-1 to authenticate users and access domain resources.
 </p>
 
-<h3>Step 1: Verify DNS Settings and Restart (Already Done)</h3>
+<h3>Verify DNS Settings and Restart (Already Done)</h3>
 
 <ul>
   <li>Client-1's DNS settings should be set to the Domain Controller's Private IP address.</li>
   <li>Restart Client-1 from the <strong>Azure Portal</strong>.</li>
 </ul>
 
-<h3>Step 2: Join Client-1 to the Domain</h3>
+<h3>Join Client-1 to the Domain</h3>
 
 <ul>
   <li>Log in to <strong>Client-1</strong> as the local administrator (<code>labuser</code>).</li>
   <li>Open <strong>System Properties</strong>:
     <ul>
       <li>Right-click on <strong>Start</strong> and select <strong>System</strong>.</li>
-      <li>Scroll down and click <strong>Advanced System Settings</strong>.</li>
+      <li>Scroll down and click <strong>Rename this PC</strong>.</li>
       <li>Under the <strong>Computer Name</strong> tab, click <strong>Change</strong>.</li>
     </ul>
   </li>
   <li>Select <strong>Domain</strong> and enter: <code>mydomain.com</code>.</li>
+
+  ![image](https://github.com/user-attachments/assets/bae74ff5-de71-40bf-a193-e371ae0e138c)
+
   <li>When prompted, enter domain administrator credentials:
     <ul>
       <li><strong>Username:</strong> <code>mydomain.com\jane_admin</code></li>
@@ -270,15 +294,20 @@ Now that we have our domain controller (DC-1) set up, we need to join Client-1 t
   <li>Click <strong>OK</strong>, then restart the computer when prompted.</li>
 </ul>
 
-<h3>Step 3: Verify Client-1 in Active Directory</h3>
+<h3>Verify Client-1 in Active Directory</h3>
 
 <ul>
   <li>Log in to <strong>DC-1</strong> as <code>jane_admin</code>.</li>
   <li>Open <strong>Active Directory Users and Computers (ADUC)</strong>.</li>
+
+  ![image](https://github.com/user-attachments/assets/3fb20716-6f73-46d2-967b-5d569fd5910c)
+
   <li>Expand the <strong>Computers</strong> container and verify that <strong>Client-1</strong> appears.</li>
 </ul>
 
-<h3>Step 4: Organize Client-1 in Active Directory</h3>
+<h3>Organize Client-1 in Active Directory</h3>
+
+![image](https://github.com/user-attachments/assets/e7a1b6bc-3574-4d15-a429-5292bdffb865)
 
 <ul>
   <li>In <strong>ADUC</strong>, right-click on the domain and select <strong>New → Organizational Unit</strong>.</li>
@@ -335,18 +364,26 @@ Before creating and testing user logins, we need to enable Remote Desktop access
 <h3>Step 3: Open System Properties</h3>
 
 <ul>
-  <li>Press <code>Win + R</code>, type <code>sysdm.cpl</code>, and press <strong>Enter</strong>.</li>
-  <li>Go to the <strong>Remote</strong> tab.</li>
-  <li>Under <strong>Remote Desktop</strong>, select <strong>"Allow remote connections to this computer"</strong>.</li>
+  <li>Right-click the windows icon and click <strong>System</strong></li>
+  <li>Go to the <strong>Remote Desktop</strong> tab.</li>
+  <li>Under <strong>Remote Desktop</strong>, select <strong>"Select users that can remotely access this PC"</strong>.</li>
 </ul>
+
+![image](https://github.com/user-attachments/assets/145557dd-dda9-407a-8ae1-da09af940614)
 
 <h3>Step 4: Allow Domain Users Access</h3>
 
 <ul>
   <li>Click <strong>Select Users...</strong>.</li>
+
+  ![image](https://github.com/user-attachments/assets/ba31ab7b-1ecc-4e9f-b7ce-61ec08f14645)
+
   <li>Click <strong>Add...</strong> and type <code>Domain Users</code>.</li>
   <li>Click <strong>Check Names</strong> to ensure it resolves.</li>
   <li>Click <strong>OK</strong> to apply the changes.</li>
+
+  ![image](https://github.com/user-attachments/assets/30da3a22-74af-4803-8546-a21471b9556b)
+
 </ul>
 
 <h3>Step 5: Verify Remote Access</h3>
@@ -407,6 +444,8 @@ In this step, we will create multiple users in Active Directory using PowerShell
   <li>Log in to <strong>DC-1</strong> as <code>mydomain.com\jane_admin</code>.</li>
   <li>Open <strong>PowerShell ISE</strong> as an administrator.</li>
 </ul>
+
+![image](https://github.com/user-attachments/assets/bdc4809c-c0a6-4505-bbfb-8944418801f5)
 
 <h3>Step 2: Create a New Script File and name it something like "create-users"</h3>
 
